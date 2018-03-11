@@ -1,0 +1,131 @@
+/*// BASE STYLES //*/
+
+html, body{
+  height: 100%;
+  width:100%;
+  overflow: hidden;
+  margin: 0;
+}
+
+.grass, .sky, .road{
+  position: relative;
+}
+
+.sky{
+  height: 40%;
+  background: skyblue;
+}
+
+.grass{
+  height: 30%;
+  background: seagreen;
+}
+
+.road{
+  height: 30%;
+  background: dimgrey;
+  box-sizing: border-box;
+  border-top: 10px solid grey;
+  border-bottom: 10px solid grey;
+  width: 100%;
+}
+
+.lines{
+  box-sizing: border-box;
+  border: 5px dashed #fff;
+  height: 0px;
+  width: 100%;
+  position: absolute;
+  top: 45%;
+}
+
+/*// ELEMENTS TO ANIMATE //*/
+.mario {
+  position: absolute;
+  top: -40px;
+  left: 0px;
+  animation: drive 3s both infinite linear, jump 0.3s 1.2s ease;
+    animation-fill-mode: forwards;
+
+}
+
+.luigi {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  animation: drive, jump 2s 1.2s ease;
+  animation-duration: 5s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-direction: forwards;
+  animation-timing-function: linear;
+
+}
+
+.cloud:nth-child(1) {
+  position: absolute;
+  width: 200px;
+  opacity: 0.8;
+  top: 20px;
+  transform: skew(30deg);
+  animation-name: cloud;
+  animation-duration: 9s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: reverse;
+}
+
+.cloud:nth-child(2) {
+  position: absolute;
+  width: 400px;
+  opacity: 0.6;
+  top: 3px;
+  transform: scale(5.2) translateX(100px);
+  animation-name: cloud;
+  animation-duration: 7.5s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: reverse;
+}
+
+.cloud:nth-child(3) {
+  position: absolute;
+  width: 300px;
+  opacity: 1;
+  top: 60px;
+  animation-name: cloud;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: reverse;
+
+}
+
+/*// KEYFRAMES //*/
+
+@keyframes drive {
+    from {
+      transform: translateX(-165px);
+    }   
+    to {
+      transform: translateX(1450px) scale(1.2);
+    }
+}
+
+@keyframes cloud {
+    from {
+      transform: translateX(-400px);
+    }   
+    to {
+      transform: translateX(1400px);
+    }
+}
+
+@keyframes jump {
+  0% {top: -40px;}
+  50% {top: -200px;}
+  100% {top: -40px;}
+}
